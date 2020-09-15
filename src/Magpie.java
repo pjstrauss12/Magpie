@@ -78,10 +78,11 @@ public class Magpie{
 		}
 
 		
-		else if(findKeyword(statement, "i like") >= 0) {
-			int startingPosition = findKeyword(statement, "i like") + 7;
-			String whatYouWant = statement.substring(startingPosition);
-			response = "Why do you like " + whatYouWant + "?";
+		else if(findKeyword(statement, "i") >= 0 
+		&& findKeyword(statement, "you") >= 0) {
+			int startingPosition = findKeyword(statement, "i") + 2;
+			String whatYouWant = statement.substring(startingPosition, 10);
+			response = "Why do you " + whatYouWant + " me?";
 		}
 		
 		else
