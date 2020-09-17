@@ -37,7 +37,6 @@ public class Magpie{
 		String response = "";
 		if (findKeyword(statement, "no") >= 0)
 		{
-            //TODO: make this less stupid
 			response = "Why so negative?";
 		}
 		else if (findKeyword(statement, "mother") >= 0
@@ -46,7 +45,7 @@ public class Magpie{
 				|| findKeyword(statement, "brother") >= 0)
 		{
 			if(lastTopic.equals("family"))
-			response = "You're lucky to have such a freat family.";
+			response = "You're lucky to have such a great family.";
 			else
 			response = "Tell me more about your family.";
 			lastTopic = "family";
@@ -80,11 +79,11 @@ public class Magpie{
 		
 		else if(findKeyword(statement, "i") >= 0 
 		&& findKeyword(statement, "you") >= 0) {
-			int startingPosition = findKeyword(statement, "i") + 2;
-			String whatYouWant = statement.substring(startingPosition, 10);
-			response = "Why do you " + whatYouWant + " me?";
+			int wordToCut = findKeyword(statement, "i") + 2;
+			String wordToSay = statement.substring(wordToCut, 7);
+			response = "Why do you " + wordToSay + " me?";
 		}
-		
+		 
 		else
 		{
 			response = getRandomResponse();
